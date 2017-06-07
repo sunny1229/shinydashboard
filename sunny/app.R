@@ -12,6 +12,8 @@ ui <- dashboardPage(
       menuItem("全台門市活動", tabName = "ACT", icon = icon("star"),
                badgeLabel = "new", badgeColor = "yellow"),
       menuItem("關於我們", tabName = "AB", icon = icon("th")),
+      menuItemOutput('menu'),
+      sliderInput('rendermenu', '心情指數', min = 1, max = 20, value = 10),
       br(),br(),br(),
       column(
         width = 12,align="center",
@@ -39,25 +41,25 @@ ui <- dashboardPage(
                 tabPanel("飲料咖啡系列", 
                          fluidRow(
                            column(width = 3,
-                                  a(img(src="0004.JPG", height = 420, width = 320), 
+                                  a(img(src="0004.JPG", width = "100%"), 
                                     href = "http://www.starbucks.com.tw/products/beverages/drinks_products_page.jspx?id=8&cat=beverages&catId=2"),
                                   br(),br(),
                                   valueBox(155, "元", icon = icon("usd"),width=12,color="olive")
                            ),
                            column(width = 3,
-                                  a(img(src="0005.JPG", height = 420, width = 320), 
+                                  a(img(src="0005.JPG", width = "100%"), 
                                     href = "http://www.starbucks.com.tw/products/beverages/drinks_products_page.jspx?id=13&cat=beverages&catId=2"),
                                   br(),br(),
                                   valueBox(110, "元", icon = icon("usd"),width=12,color="olive")
                            ),
                            column(width = 3,
-                                  a(img(src="0006.JPG", height = 420, width = 320), 
+                                  a(img(src="0006.JPG", width = "100%"), 
                                     href = "http://www.starbucks.com.tw/products/beverages/drinks_products_page.jspx?id=11&cat=beverages&catId=2"),
                                   br(),br(),
                                   valueBox(135, "元", icon = icon("usd"),width=12,color="olive")
                            ),
                            column(width = 3,
-                                  a(img(src="0007.JPG", height = 420, width = 320), 
+                                  a(img(src="0007.JPG", width = "100%"), 
                                     href = "http://www.starbucks.com.tw/products/beverages/drinks_products_page.jspx?id=142&cat=beverages&catId=2"),
                                   br(),br(),
                                   valueBox(120, "元", icon = icon("usd"),width=12,color="olive")
@@ -70,25 +72,25 @@ ui <- dashboardPage(
                 tabPanel("星冰樂系列", 
                          fluidRow(
                            column(width = 3,
-                                  a(img(src="0008.JPG", height = 420, width = 320), 
+                                  a(img(src="0008.JPG", width = "100%"), 
                                     href = "http://www.starbucks.com.tw/products/beverages/drinks_products_page.jspx?id=144&cat=frappuccino&catId=6"),
                                   br(),br(),
                                   valueBox(150, "元", icon = icon("usd"),width=12,color="olive")
                            ),
                            column(width = 3,
-                                  a(img(src="0009.JPG", height = 420, width = 320), 
+                                  a(img(src="0009.JPG", width = "100%"), 
                                     href = "http://www.starbucks.com.tw/products/beverages/drinks_products_page.jspx?id=147&cat=frappuccino&catId=5"),
                                   br(),br(),
                                   valueBox(145, "元", icon = icon("usd"),width=12,color="olive")
                            ),
                            column(width = 3,
-                                  a(img(src="0010.JPG", height = 420, width = 320), 
+                                  a(img(src="0010.JPG", width = "100%"), 
                                     href = "http://www.starbucks.com.tw/products/beverages/drinks_products_page.jspx?id=23&cat=frappuccino&catId=5"),
                                   br(),br(),
                                   valueBox(165, "元", icon = icon("usd"),width=12,color="olive")
                            ),
                            column(width = 3,
-                                  a(img(src="0011.JPG", height = 420, width = 320), 
+                                  a(img(src="0011.JPG", width = "100%"), 
                                     href = "http://www.starbucks.com.tw/products/beverages/drinks_products_page.jspx?id=143&cat=frappuccino&catId=5"),
                                   br(),br(),
                                   valueBox(150, "元", icon = icon("usd"),width=12,color="olive")
@@ -103,27 +105,29 @@ ui <- dashboardPage(
               fluidRow(
                 column(width = 3,
                        box(title = "蘋果派", status = "warning", width = NULL
-                           ,img(src="0013.JPG", height = 320, width = 290),
+                           ,
+                           collapsible = TRUE
+                           ,img(src="0013.JPG", width = "100%"),
                            "120元")
                 ),
                 column(width = 3,
                        box(
-                         title = "可可輕乳蛋糕??", width = NULL, solidHeader = TRUE, status = "primary",
-                         img(src="0012.JPG", height = 320, width = 290),
+                         title = "可可輕乳蛋糕", width = NULL, solidHeader = TRUE, status = "primary",
+                         img(src="0012.JPG", width = "100%"),
                          "80元"
                        )
                 ),
                 column(width = 3,
                        box(
                          title = "芋泥布丁薄餅", width = NULL, background = "purple",
-                         img(src="0014.JPG", height = 320, width = 290),
+                         img(src="0014.JPG", width = "100%"),
                          "125元"
                        )
                 ),
                 column(width = 3,
                        box(
                          title = "蘋果白桃慕斯", width = NULL, background = "maroon",
-                         img(src="0015.JPG", height = 320, width = 290),
+                         img(src="0015.JPG", width = "100%"),
                          "125元"
                        )
                 )
@@ -131,15 +135,15 @@ ui <- dashboardPage(
               fluidRow(
                 column(width = 6,
                        box(
-                         title = "咖啡阿法奇朵", width = NULL, background = "navy",
-                         img(src="0017.JPG", height = 230, width = 630),
+                         title = "咖啡阿法奇朵", width = NULL, background = "navy",
+                         img(src="0017.JPG",width = "100%"),
                          "135元"
                        )
                 ),
                 column(width = 6,
                        box(
-                         title = "抹茶阿法奇朵", width = NULL, background = "olive",
-                         img(src="0016.JPG", height = 230, width = 630),
+                         title = "抹茶阿法奇朵", width = NULL, background = "olive",
+                         img(src="0016.JPG", width = "100%"),
                          "135元"
                        )
                 )
@@ -150,7 +154,7 @@ ui <- dashboardPage(
               fluidRow(
                 column(width = 1,""),
                 column(width = 11,
-                       img(src="0018.JPG", height = 700, width = 800)
+                       img(src="0018.JPG", width = "100%")
                 )
               )
       ),
@@ -165,11 +169,11 @@ ui <- dashboardPage(
               br(),br(),
               fluidRow(
                 column(width = 1,
-                       a(img(src="0019.png", height = 80, width = 80), 
+                       a(img(src="0019.png", width = "60%"), 
                          href = "https://www.facebook.com/starbuckstaiwan?ref=nf")
                        ),
                 column(width = 1,
-                       a(img(src="0020.JPG", height = 80, width = 80), 
+                       a(img(src="0020.JPG", width = "60%"), 
                          href = "https://www.youtube.com/user/STARBUCKSTW?feature=mhum")
                 ),
                 column(width = 8,""),
@@ -206,6 +210,10 @@ server <- function(input, output) {
   output$plot1 <- renderPlot({
     data <- histdata[seq_len(input$slider)]
     hist(data)
+  })
+  
+  output$menu <- renderMenu({
+    menuItem(input$rendermenu)
   })
 }
 
